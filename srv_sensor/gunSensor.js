@@ -14,7 +14,8 @@ function readSensor() {
 			const date = Date.now()
 			gun.get('sensorData').get(date).put({
 				temperature: temperature,
-				humidity:humidity
+				humidity:humidity,
+				date:date
 			});
 		}
 	})
