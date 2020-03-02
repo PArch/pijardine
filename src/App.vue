@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Sensor msg="Welcome to Your Vue.js App"/>
+    <Sensor/>
   </div>
 </template>
 
