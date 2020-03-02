@@ -1,16 +1,11 @@
-const express = require('express')
-const app = express()
 const sensor = require("node-dht-sensor");
+const http = require('http')
+const Gun = require('gun');
+var gun = Gun({ 	file: 'data', web: http.createServer().listen(8765) });
+gun.get('sensorData').on(function(data, key){
+	console.log("update:", data);
+});
 
-var Gun = require('gun');
-app.use(Gun.serve);
-
-const server = app.listen(3000, function () {
-	gun.get('sensorData').on(function(data, key){
-		console.log("update:", data);
-	});
-})
-var gun = Gun({	file: 'data', web: server });
 
 
 function readSensor() {
