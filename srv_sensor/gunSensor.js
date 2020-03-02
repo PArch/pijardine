@@ -1,17 +1,10 @@
 const express = require('express')
-const Gpio = require('onoff').Gpio // Gpio class
 const app = express()
-const temperatureIO = new Gpio(4, 'in')
-const relay = new Gpio(26, 'out')
-const bodyParser = require('body-parser')
-const serveIndex = require('serve-index')
 const sensor = require("node-dht-sensor");
 
 var Gun = require('gun');
 app.use(Gun.serve);
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static('public'));
+
 
 const server = app.listen(3000, function () {
 
