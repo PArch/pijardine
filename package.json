@@ -8,8 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "gun": "^0.2020.116",
+    "moment": "^2.24.0",
+    "node-dht-sensor": "^0.4.1",
+    "onoff": "^5.0.1",
+    "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
+    "vue-gun": "0.0.3",
+    "vue-trend-chart": "^0.15.1",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
