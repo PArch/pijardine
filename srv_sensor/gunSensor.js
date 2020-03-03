@@ -19,12 +19,12 @@ function readSensorDHC22() {
 }
 function readSensorLM393() {
 	rpio.open(11, rpio.INPUT);
-	console.log('Pin 15 is currently ' + (rpio.read(11) ? 'high' : 'low'));
-	console.log(rpio.read(17));
+	console.log('Pin 11 is currently ' + (rpio.read(11) ? 'high' : 'low'));
+	console.log(rpio.read(11));
 }
-
+ readSensorLM393()
 const job = new CronJob('0 */1 * * * *', function() {
 	readSensorDHC22()
- readSensorLM393()
+ //readSensorLM393()
 });
 job.start();
