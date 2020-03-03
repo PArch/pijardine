@@ -1,6 +1,5 @@
 # pijardine
-
-
+![alt text](https://raw.githubusercontent.com/PArch/pijardine/master/doc/img/graph.png)
 
 ## Project setup
 ```
