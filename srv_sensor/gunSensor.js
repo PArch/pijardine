@@ -1,10 +1,11 @@
 const sensor = require("node-dht-sensor");
+const rpio = require('rpio');
 const http = require('http')
 const Gun = require('gun');
 const CronJob = require('cron').CronJob;
 var gun = Gun({file: 'data', web: http.createServer().listen(8765) });
 
-function readSensor() {
+function readSensorDHC22() {
 	sensor.read(22, 4, function(err, temperature, humidity) {
 		if (!err) {
 			const date = Date.now()
@@ -16,8 +17,14 @@ function readSensor() {
 		}
 	})
 }
+function readSensorLM393() {
+	rpio.open(17, rpio.INPUT);
+	console.log('Pin 15 is currently ' + (rpio.read(17) ? 'high' : 'low'));
+	console.log(rpio.read(17));
+}
 
 const job = new CronJob('0 */1 * * * *', function() {
-	readSensor()
+	readSensorDHC22()
+ readSensorLM393()
 });
 job.start();

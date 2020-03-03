@@ -1,4 +1,11 @@
 # pijardine
+
+Monitoring temperature and humidity for Jardiner.
+RaspberryPi 3
+DHT22 sensor
+
+vuejs gunjs cron and other cool stuff
+
 ![alt text](https://raw.githubusercontent.com/PArch/pijardine/master/doc/img/graph.png)
 
 ## Project setup
