@@ -19,7 +19,7 @@ function readSensorDHC22() {
 	})
 }
 function readSensorLM393() {
-	var soilSensor = mcpadc.open(0,{speedHz:20000},function(err){
+	var soilSensor = mcpadc.open(5,{speedHz:20000},function(err){
 console.log(err);
 		if (err) throw err;
 		soilSensor.read(function(err, reading){
