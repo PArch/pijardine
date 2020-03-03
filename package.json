@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "cron": "^1.8.2",
     "gun": "^0.2020.116",
     "moment": "^2.24.0",
     "node-dht-sensor": "^0.4.1",

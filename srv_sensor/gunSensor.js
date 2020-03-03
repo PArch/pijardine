@@ -1,12 +1,8 @@
 const sensor = require("node-dht-sensor");
 const http = require('http')
 const Gun = require('gun');
+const CronJob = require('cron').CronJob;
 var gun = Gun({file: 'data', web: http.createServer().listen(8765) });
-gun.get('sensorData').on(function(data, key){
-	console.log("update:", data);
-});
-
-
 
 function readSensor() {
 	sensor.read(22, 4, function(err, temperature, humidity) {
@@ -20,4 +16,8 @@ function readSensor() {
 		}
 	})
 }
-setInterval(readSensor, 60000)
+
+const job = new CronJob('0 */1 * * * *', function() {
+	readSensor()
+});
+job.start();
