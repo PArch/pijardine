@@ -20,9 +20,9 @@ function readSensorDHC22() {
 }
 function readSensorLM393() {
 	var soilSensor = mcpadc.open(0,{speedHz:20000},function(err){
+console.log(err);
 		if (err) throw err;
 		soilSensor.read(function(err, reading){
-console.log(reading);
 			if (err) throw err;
 			function map(x, in_min, in_max, out_min, out_max){
 				return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
