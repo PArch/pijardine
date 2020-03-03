@@ -12,7 +12,7 @@ function readSensor() {
 	sensor.read(22, 4, function(err, temperature, humidity) {
 		if (!err) {
 			const date = Date.now()
-			gun.get('sensorData').get(date).put({
+			gun.get('sensorDataV1').get(date).put({
 				temperature: temperature,
 				humidity:humidity,
 				date:date
