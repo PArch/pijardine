@@ -19,21 +19,26 @@ function readSensorDHC22() {
 	})
 }
 function readSensorLM393() {
-	var soilSensor = mcpadc.open(5,{speedHz:20000},function(err){
-console.log(err);
-		if (err) throw err;
-		soilSensor.read(function(err, reading){
-			if (err) throw err;
-			function map(x, in_min, in_max, out_min, out_max){
-				return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-			}
-			var curValue = map(reading.value, 0, 1, 100, 0).toFixed(1);
-			console.log("soil persen : " + curValue + "%");
-			console.log("soil moisture reading : " + (1023 - ((reading.value * 5 - 0.5) * 100).toFixed(2)) );
-			app.currentSoil = curValue;
-			resolve();
-		});
-	});
+	rpio.open(11, rpio.INPUT);
+	console.log('Pin 11 is currently ' + (rpio.read(11) ? 'high' : 'low'));
+	console.log(rpio.read(11));
+	// var soilSensor = mcpadc.open(0,{speedHz:20000},function(err){
+	// 	if (err) throw err;
+	// 	soilSensor.read(function(err, reading){
+	// 		if (err) throw err;
+	//
+	// 		//reading.value returns a number between 0 and 1.
+	// 		//if totally dry conditions, returns 1.  Sensor submerged in water returns ~0.5
+	// 		function map(x, in_min, in_max, out_min, out_max){
+	// 			return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+	// 		}
+	// 		var curValue = map(reading.value, 0, 1, 100, 0).toFixed(1);
+	// 		console.log("soil persen : " + curValue + "%");
+	// 		console.log("soil moisture reading : " + (1023 - ((reading.value * 3.3 - 0.5) * 100).toFixed(2)) );
+	// 		app.currentSoil = curValue;
+	// 		resolve();
+	// 	});
+	// });
 
 }
 
@@ -41,5 +46,4 @@ const job = new CronJob('0 */1 * * * *', function() {
 	readSensorDHC22()
 	readSensorLM393()
 });
-	readSensorLM393()
 job.start();
