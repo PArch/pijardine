@@ -23,8 +23,8 @@ function readSensorLM393() {
 	console.log(rpio.read(11));
 
 	rpio.open(13, rpio.INPUT);
-	console.log('Pin 11 is currently ' + (rpio.read(11) ? 'high' : 'low'));
-	console.log(rpio.read(11));
+	console.log('Pin 11 is currently ' + (rpio.read(13) ? 'high' : 'low'));
+	console.log(rpio.read(13));
 }
  readSensorLM393()
 const job = new CronJob('0 */1 * * * *', function() {
