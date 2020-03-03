@@ -22,9 +22,6 @@ function readSensorLM393() {
 	console.log('Pin 11 is currently ' + (rpio.read(11) ? 'high' : 'low'));
 	console.log(rpio.read(11));
 
-	rpio.open(13, rpio.INPUT);
-	console.log('Pin 11 is currently ' + (rpio.read(13) ? 'high' : 'low'));
-	console.log(rpio.read(13));
 	rpio.poll(13, function() {
 		console.log("Could you please be a little quieter?");
 	}, rpio.POLL_LOW);
