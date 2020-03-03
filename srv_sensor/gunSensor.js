@@ -19,7 +19,6 @@ function readSensorDHC22() {
 	})
 }
 function readSensorLM393() {
-	rpio.open(11, rpio.INPUT);
 	var soilSensor = mcpadc.open(0,{speedHz:20000},function(err){
 		if (err) throw err;
 		soilSensor.read(function(err, reading){
