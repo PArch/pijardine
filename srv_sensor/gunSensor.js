@@ -35,6 +35,8 @@ const job = new CronJob('0 */1 * * * *', function() {
 	readSensorDHC22()
 	readSensorLM393()
 read_dht11(v)
+console.log(v[2]);
+console.log(v[0]);
 });
 job.start();
 var pin = 13;
