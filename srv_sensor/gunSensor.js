@@ -18,8 +18,8 @@ function readSensorDHC22() {
 	})
 }
 function readSensorLM393() {
-	rpio.open(17, rpio.INPUT);
-	console.log('Pin 15 is currently ' + (rpio.read(17) ? 'high' : 'low'));
+	rpio.open(11, rpio.INPUT);
+	console.log('Pin 15 is currently ' + (rpio.read(11) ? 'high' : 'low'));
 	console.log(rpio.read(17));
 }
 
