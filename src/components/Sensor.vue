@@ -107,7 +107,7 @@ export default {
   opacity: 1;
 }
 .bitcoin-price .curve-btc .stroke {
-  stroke: blue;
+  stroke: #000;
   stroke-width: 2;
 }
 .bitcoin-price .curve-btc .fill {
