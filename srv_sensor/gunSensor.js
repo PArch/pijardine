@@ -26,9 +26,9 @@ function readSensorLM393() {
 	console.log('Pin 11 is currently ' + (rpio.read(13) ? 'high' : 'low'));
 	console.log(rpio.read(13));
 }
- readSensorLM393()
+readSensorLM393()
 const job = new CronJob('0 */1 * * * *', function() {
 	readSensorDHC22()
- //readSensorLM393()
+	readSensorLM393()
 });
 job.start();
