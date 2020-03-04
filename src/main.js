@@ -3,10 +3,11 @@ import App from './App.vue'
 import VueGun from 'vue-gun';
 import axios from "axios";
 import VueAxios from "vue-axios";
-import TrendChart from "vue-trend-chart";
+import Chartkick from 'vue-chartkick'
+import Chart from 'chart.js'
 
+Vue.use(Chartkick.use(Chart))
 Vue.use(VueAxios, axios);
-Vue.use(TrendChart);
 Vue.use(VueGun, {
     peers: ['http://192.168.0.13:8765/gun']
 });
